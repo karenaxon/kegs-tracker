@@ -11,6 +11,7 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       mainKegList: [],
       selectedKeg: null,
+      editing: false
     }
   }
 
@@ -19,6 +20,7 @@ class KegControl extends React.Component {
       this.setState({
         formVisibleOnPage: false,
         selectedKeg: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -27,23 +29,60 @@ class KegControl extends React.Component {
     }
   }
 
-  handleAddingNewKegToList = (addKeg) => {
-    const newMainKegList = this.state.mainKegList.concat(addKeg);
+  handleAddingNewKegToList = (newKeg) => {
+    const newMainKegList = this.state.mainKegList.concat(newKeg);
     this.setState({mainKegList: newMainKegList,
                 formVisibleOnPage: false });
+  }
+
+  handleChangingSelectedKeg = (id) => {
+    const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
+    this.setState({selectedKeg: selectedKeg});
+  }
+
+  handleDeletingKeg = (id) => {
+    const newMainKegList = this.state.mainKegList.filter(keg => keg.id !== id);
+    this.setState({
+      mainKegList: newMainKegList,
+      selectedKeg: null
+    });
+  }
+
+  handleEditClick = () => {
+    this.setState ({editing: true});
+  }
+
+  handleEditingKegInList = (kegToEdit) => {
+    const editedMainKegList = this.state.mainKegList.filter(keg => keg.id !== this.state.selectedKeg.id).concat(kegToEdit);
+    this.setState({
+      mainKegList: editedMainKegList,
+      editing: false,
+      selectedTicket: null
+    });
   }
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    let buttonStyle = null;
+    let buttonStyle = "btn btn-dark"
 
-    if(this.state.formVisibleOnPage){
+    if(this.state.editing) {
+      currentlyVisibleState = <EditKetForm ket = {this.state.selectedKeg} onEditTicket = {this.handleEditingKegInList} />
+      buttonText="Return to Kegs List";
+      buttonStyle={buttonStyle}
+    } else if(this.state.selectedKeg != null){
+      currentlyVisibleState = <KegDetail 
+      keg={this.state.selectedKeg}
+      onClikingDelete={this.handleDeletingKeg}
+      onClickingEdit={this.handleEditClick} />
+      buttonText="Return to Kegs List";
+      buttonStyle={buttonStyle}
+    } else if(this.state.formVisibleOnPage){
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
       buttonText = "Return to Kegs List";
-      buttonStyle = "btn btn-black";
+      buttonStyle = {buttonStyle};
     }else {
-    currentlyVisibleState = <KegList />
+      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />
       buttonText = "Add a New Keg";
       buttonStyle = "btn btn-black";
     }

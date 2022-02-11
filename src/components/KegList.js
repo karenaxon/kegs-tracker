@@ -1,7 +1,6 @@
-import React from "react";
-import Keg from "./Keg";
-import PintInventory from "./PintInventory";
-import PropTypes from "prop-types";
+import React from 'react';
+import Keg from './Keg';
+import PropTypes from 'prop-types';
 
 function KegList(props){
 
@@ -24,3 +23,5 @@ KegList.propTypes = {
   kegList: PropTypes.array,
   onTicketSelection: PropTypes.func
 }
+
+export default KegList;

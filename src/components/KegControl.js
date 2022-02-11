@@ -1,6 +1,8 @@
-import React from "react";
-import KegList from "./KegList";
-import NewKegForm from "./NewKegForm";
+import React from 'react';
+import KegList from './KegList';
+import NewKegForm from './NewKegForm';
+import EditKegForm from './EditKegForm';
+import KegDetail from './KegDetail';
 
 
 class KegControl extends React.Component {
@@ -24,7 +26,7 @@ class KegControl extends React.Component {
       });
     } else {
       this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
+        formVisibleOnPage: !prevState.formVisibleOnPage
       }));
     }
   }
@@ -64,27 +66,27 @@ class KegControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    let buttonStyle = "btn btn-dark"
+    let buttonStyle = null
 
     if(this.state.editing) {
-      currentlyVisibleState = <EditKetForm ket = {this.state.selectedKeg} onEditTicket = {this.handleEditingKegInList} />
-      buttonText="Return to Kegs List";
-      buttonStyle={buttonStyle}
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditTicket = {this.handleEditingKegInList} />
+      buttonText='Return to Kegs List';
+      buttonStyle='btn btn-dark'
     } else if(this.state.selectedKeg != null){
       currentlyVisibleState = <KegDetail 
       keg={this.state.selectedKeg}
-      onClikingDelete={this.handleDeletingKeg}
+      onClickingDelete={this.handleDeletingKeg}
       onClickingEdit={this.handleEditClick} />
-      buttonText="Return to Kegs List";
-      buttonStyle={buttonStyle}
+      buttonText='Return to Kegs List';
+      buttonStyle='btn btn-dark'
     } else if(this.state.formVisibleOnPage){
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
-      buttonText = "Return to Kegs List";
-      buttonStyle = {buttonStyle};
+      buttonText='Return to Kegs List';
+      buttonStyle='btn btn-dark';
     }else {
       currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />
-      buttonText = "Add a New Keg";
-      buttonStyle = "btn btn-black";
+      buttonText='Add a New Keg';
+      buttonStyle='btn btn-black';
     }
     return (
       <React.Fragment>

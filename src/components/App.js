@@ -1,15 +1,14 @@
-import React from "react";
-import Header from "./Header";
-import KegControl from "./KegControl";
-import PintInventory from "./PintInventory";
+import React from 'react';
+import Header from './Header';
+import KegList from './KegControl';
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <KegControl />
+      <KegList />
     </React.Fragment>
-  )
+  );
 }
 
 export default App;

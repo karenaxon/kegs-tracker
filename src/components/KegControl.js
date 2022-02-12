@@ -19,6 +19,7 @@ class KegControl extends React.Component {
 
   handleClick = () => {
     if(this.state.selectedKeg != null) {
+      (console.log("in click func"))
       this.setState({
         formVisibleOnPage: false,
         selectedKeg: null,
@@ -73,8 +74,7 @@ class KegControl extends React.Component {
       buttonText='Return to Kegs List';
       buttonStyle='btn btn-dark'
     } else if(this.state.selectedKeg != null){
-      currentlyVisibleState = <KegDetail 
-      keg={this.state.selectedKeg}
+      currentlyVisibleState = <KegDetail keg={this.state.selectedKeg}
       onClickingDelete={this.handleDeletingKeg}
       onClickingEdit={this.handleEditClick} />
       buttonText='Return to Kegs List';
@@ -95,7 +95,6 @@ class KegControl extends React.Component {
       </React.Fragment>
     );
   }
-
 }
 
 export default KegControl;

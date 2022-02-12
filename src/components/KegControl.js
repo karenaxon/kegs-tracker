@@ -14,12 +14,11 @@ class KegControl extends React.Component {
       mainKegList: [],
       selectedKeg: null,
       editing: false
-    }
+    };
   }
 
   handleClick = () => {
     if(this.state.selectedKeg != null) {
-      (console.log("in click func"))
       this.setState({
         formVisibleOnPage: false,
         selectedKeg: null,
@@ -52,6 +51,7 @@ class KegControl extends React.Component {
   }
 
   handleEditClick = () => {
+    console.log("handleEditClick reached!");
     this.setState ({editing: true});
   }
 
@@ -60,7 +60,7 @@ class KegControl extends React.Component {
     this.setState({
       mainKegList: editedMainKegList,
       editing: false,
-      selectedTicket: null
+      selectedKeg: null
     });
   }
 
@@ -70,7 +70,7 @@ class KegControl extends React.Component {
     let buttonStyle = null
 
     if(this.state.editing) {
-      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditTicket = {this.handleEditingKegInList} />
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText='Return to Kegs List';
       buttonStyle='btn btn-dark'
     } else if(this.state.selectedKeg != null){
@@ -86,12 +86,11 @@ class KegControl extends React.Component {
     }else {
       currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />
       buttonText='Add a New Keg';
-      buttonStyle='btn btn-black';
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick} className={buttonStyle}>{buttonText}</button>
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }

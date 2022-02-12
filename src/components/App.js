@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './Header';
-import KegList from './KegControl';
+import KegControl from "./KegControl";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <KegList />
+      <KegControl />
     </React.Fragment>
   );
 }

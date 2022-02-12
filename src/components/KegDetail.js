@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-function KegDetail(props) {
+function KegDetail(props){
   const { keg, onClickingDelete } = props;
 
-  return(
+  return (
     <React.Fragment>
-      <h2>Keg Details for {keg.name}</h2>
-      <h4>Brand: {keg.brand}</h4>
-      <h4>Price: {keg.price}</h4>
-      <h4>Alcohol Content: {keg.alcoholContent}</h4>
-      <button onClick={ props.onClickingEdit }>Update this Keg</button>
-      <button onClick={()=> props.onClickingDelete(keg.id)}>Delete Keg from List</button>
+      <h1>Keg Detail</h1>
+      <h3>{keg.names}</h3>
+      <p><em>{keg.brand}</em></p>
+      <button onClick={ props.onClickingEdit }>Update Keg</button>
+      <button onClick={()=> props.onClickingDelete(keg.id) }>Close Keg</button>
+      <hr/>
     </React.Fragment>
   );
 }

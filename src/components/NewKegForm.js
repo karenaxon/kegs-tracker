@@ -6,8 +6,15 @@ import ReusableForm from './ReusableForm';
 function NewKegForm(props) {
 
   function handleNewKegFormSubmission(event){
-    event.preventDefault();
-    props.onNewKegCreation({name: event.target.name.value, brand: event.target.brand.value, price: event.target.price.value, alcoholContent: event.target.alcoholContent.value, pints: event.target.pints.value, id: v4()});
+    // event.preDefault();
+    props.onNewKegCreation({
+      name: event.target.name.value, 
+      brand: event.target.brand.value, 
+      price: event.target.price.value, 
+      alcoholContent: event.target.alcoholContent.value,
+      description: event.target.description.value, 
+      currentPints: 124, 
+      id: v4()});
   }
 
   return (

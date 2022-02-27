@@ -12,7 +12,7 @@ This application tracks kegs for a tap room. It displays a list of kegs availabl
 ## Components Diagram
 
 <p align="left">
-<img src="./src/images/components-diagram.png" height="382px">
+<img src="./src/images/project-chart.png" height="382px">
 </p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)

@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ReusableForm(props) {
+
   return (
     <React.Fragment>
       <form onSubmit={props.formSubmissionHandler}>
         <input
         required
         type='text'
-        name='name'
+        name= 'name'
         placeholder='name'/>
         <input
         required

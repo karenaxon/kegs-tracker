@@ -3,7 +3,15 @@ import PropTypes from "prop-types";
 
 function KegDetail(props){
   const { keg } = props;
+  let kegStatus = null;
 
+    if(keg.currentPints === 0){
+    kegStatus = <h4>Pints Remaining: EMPTY</h4>
+    } else{
+      kegStatus = <><h4>Pints Remaining: {keg.currentPints}</h4>
+      <button onClick={() => props.onClickingDecreasePints(keg.id)}>Decrease Pints</button></>
+    }
+  
   return (
     <React.Fragment>
       <h2>Details for {keg.names}</h2>
@@ -11,8 +19,7 @@ function KegDetail(props){
       <h4>Price: {keg.price}</h4>
       <h4>Alcohol content: {keg.alcoholContent}</h4>
       <h4>Description: {keg.description}</h4>
-      <h4>Pints Remaining: {keg.currentPints}</h4>
-      <button onClick={() => props.onClickingDecreasePints(keg.id) }>Decrease Pints</button>
+      {kegStatus}
       <button onClick={() => props.onClickingIncreasePints(keg.id) }>Increase Pints</button>
       <button onClick={ props.onClickingEdit }>Update Keg Information</button>
       <button onClick={()=> props.onClickingDelete(keg.id) }>Delete Keg</button>

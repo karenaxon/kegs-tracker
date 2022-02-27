@@ -35,8 +35,8 @@ This application tracks kegs for a tap room. It displays a list of kegs availabl
 * Open your terminal and navigate to the location where you would like to clone the application.
 * Use the command _git clone https://github.com/karenaxon/kegs-tracker.git_ to clone the repository.
 * From the root directory of the application, the kegs-tracker, run the following commands:
-  - _npm install --save-exact react-scripts@3.2.0 _
-  - _npm run start_ 	
+  - _npm install_
+  - _npm run start_
 * Navigate to ```localhost:3000``` in your favorite web browser to view the project.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)

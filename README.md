@@ -15,6 +15,12 @@ This application tracks kegs for a tap room. It displays a list of kegs availabl
 <img src="./src/images/project-chart.png" height="382px">
 </p>
 
+## Data Flow Diagram
+
+<p align="left">
+<img src="./src/images/flow-chart.png" height="382px">
+</p>
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 ## Technologies Used

@@ -6,9 +6,8 @@ function PintInventory(){
   return(
     <React.Fragment>
       <h4>Pints available: {pints}</h4>
-      <button onClick={() => setPints(pints + 1)}>Add a Pint to Inventory</button>
+      <button onClick={() => setPints(pints + 1)} className="btn btn-dark">Add a Pint to Inventory</button>
     </React.Fragment>
-
   );
 }
 

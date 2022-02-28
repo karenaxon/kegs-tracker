@@ -3,7 +3,7 @@ import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import EditKegForm from './EditKegForm';
 import KegDetail from './KegDetail';
-
+import Coco from './../images/Coco.jpeg';
 
 class KegControl extends React.Component {
 
@@ -11,10 +11,28 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainKegList: [],
-      selectedKeg: null,
-      dataLoaded: false,
-      editing: false
+      mainKegList: [
+        {
+          name: "Coco Jones Coconut Porter",
+          image: {Coco},
+          brand: "Black Raven",
+          price: '6',
+          alcoholContent: '5.6%',
+          description: 'A Tamerlane Brown Porter, with it\'s subtle nut and coffee tones takes a delicious turn when infused with freshly toasted coconuts.',
+          currentPints: 4,
+          id: '1', 
+        },
+        {
+          name: "Updraft Pale Ale",
+          image: {Coco},
+          brand: "Black Raven",
+          price: '6.50',
+          alcoholContent: '5.5%',
+          description: 'This modern take on a classic style is built on a light pale malt profile. From there, we layer on some exciting, newer hop varietals. These hops contribute a range of flavors and aromatics from light citrus & melon to various tropical fruits.',
+          currentPints: 10,
+          id: '2', 
+        },  
+      ],
     };
   }
 
@@ -33,10 +51,10 @@ class KegControl extends React.Component {
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    console.log("in adding to list");
     const newMainKegList = this.state.mainKegList.concat(newKeg);
-    this.setState({mainKegList: newMainKegList,
-                formVisibleOnPage: false });
+    this.setState({
+      mainKegList: newMainKegList,
+      formVisibleOnPage: false });
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -84,67 +102,6 @@ class KegControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-
-    if(this.state.dataLoaded){
-      let existingKegs = [{
-        name: "Billy's Bubbly",
-        description: 'Champagne Everyday for Everyday People. Skip the bottle, Pop a barrel',
-        brand: "Champagne Barrels",
-        price: 5,
-        alcoholContent: '12%',
-        currentPints: 64,
-        id: '1'
-      },
-      {
-        name: 'Cola Cola Cola',
-        brand: "Charlie's Cola Cart ©©©",
-        description: "Charlie's namesake Cola Cola Cola. Smooth? Rich? Doesn't Matter, one sip will turn your day around",
-        price: 3,
-        alcoholContent: '0%',
-        currentPints: 1,
-        id: '2'
-      },
-      {
-        name: 'Rusty Good Dog',
-        description: "Backwoods Moonshine, made with love by Forest Elvis in the deep woods",
-        brand: 'Forest Jailbreak',
-        price: 4,
-        alcoholContent: '40%',
-        currentPints: 84,
-        id: '3'
-      },
-      {
-        name: "wwwRootBeer",
-        brand: "Charlie's Cola Cart ©©©",
-        description: "Any soda shoppe worth their suger has a good rootbeer in their main directory",
-        price: 3,
-        alcoholContent: '0%',
-        currentPints: 20,
-        id: '4'
-      },
-      {
-        name: "Malty Miss Marple Mix",
-        brand: "Forest Jailbreak",
-        description: "Malty Miss Marple famous Malt beer. Sweet and Easy to drink",
-        price: 3,
-        alcoholContent: '2.5%',
-        currentPints: 104,
-        id: '5'
-      },
-      {
-        name: "Dangerous Beer",
-        brand: "ALL GAS FULL OUT",
-        description: "nothing like a beer with a dangerous name to compensate for your mediocrity.",
-        price: 3,
-        alcoholContent: '8%',
-        currentPints: 18,
-        id: '6'
-      }]
-    this.setState({
-      mainKegList: existingKegs,
-      dataLoaded: true
-    })
-    }
     
     if(this.state.editing) {
       currentlyVisibleState = <EditKegForm 
@@ -176,7 +133,7 @@ class KegControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <button onClick={this.handleClick} className="btn btn-dark">{buttonText}</button>
       </React.Fragment>
     );
   }

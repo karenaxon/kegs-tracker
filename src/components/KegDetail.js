@@ -9,7 +9,7 @@ function KegDetail(props){
     kegStatus = <h4>Pints Remaining: EMPTY</h4>
     } else{
       kegStatus = <><h4>Pints Remaining: {keg.currentPints}</h4>
-      <button onClick={() => props.onClickingDecreasePints(keg.id)}>Decrease Pints</button></>
+      <button onClick={() => props.onClickingDecreasePints(keg.id)} className="btn btn-dark m-3">Decrease Pints</button></>
     }
   
   return (
@@ -20,9 +20,9 @@ function KegDetail(props){
       <h4>Alcohol content: {keg.alcoholContent}</h4>
       <h4>Description: {keg.description}</h4>
       {kegStatus}
-      <button onClick={() => props.onClickingIncreasePints(keg.id) }>Increase Pints</button>
-      <button onClick={ props.onClickingEdit }>Update Keg Information</button>
-      <button onClick={()=> props.onClickingDelete(keg.id) }>Delete Keg</button>
+      <button onClick={() => props.onClickingIncreasePints(keg.id) }className="btn btn-dark m-3">Increase Pints</button>
+      <button onClick={ props.onClickingEdit } className="btn btn-dark m-3">Update Keg Information</button>
+      <button onClick={()=> props.onClickingDelete(keg.id)} className="btn btn-dark m-3">Delete Keg</button>
       <hr/>
     </React.Fragment>
   );

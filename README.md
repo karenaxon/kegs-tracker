@@ -3,9 +3,14 @@ This application tracks kegs for a tap room. It displays a list of kegs availabl
 
 #### By Karen Axon
 
-<p align="center">
-<img src="" height="382px">
-</p>
+<div>
+  <p align="center">
+  <img src="./src/images/home.jpg" height="382px">
+  </p>
+  <p align="center">
+  <img src="./src/images/add-keg.jpg" height="382px">
+  </p>
+</div>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 

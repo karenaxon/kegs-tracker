@@ -1,5 +1,5 @@
 # Kegs Tracker
-This application tracks kegs for a tap room. It displays a list of kegs available and a user can see details for each keg. Additionally, a user can add additional kegs to the list of kegs. 
+This application tracks kegs for a tap room. It displays a list of kegs available and a user can create, read(view keg details), update and delete kegs.
 
 #### By Karen Axon
 
